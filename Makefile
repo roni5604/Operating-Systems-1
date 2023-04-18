@@ -1,9 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic
 
-all: stshell
+all: stdshell
 
-stshell: stshell.c
+stdshell: stdshell.c
 	$(CC) $(CFLAGS) -o stshell stshell.c
 
 clean:

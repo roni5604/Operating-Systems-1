@@ -7,6 +7,7 @@
 #include <errno.h>
 
 #define BUFFER_SIZE 4096
+#define COPY_MODE 0644// this is the mode of the file to be created defined in sys/stat.h
 
 int main(int argc, char *argv[]) {
     int input_fd, output_fd;
@@ -14,6 +15,7 @@ int main(int argc, char *argv[]) {
     char buffer[BUFFER_SIZE];
     bool verbose = false, force = false;
     int opt;
+    
 
     while ((opt = getopt(argc, argv, "vf")) != -1) {
         switch (opt) {
@@ -47,7 +49,7 @@ int main(int argc, char *argv[]) {
         open_flags |= O_EXCL;
     }
 
-    output_fd = open(argv[optind + 1], open_flags, 0644);
+    output_fd = open(argv[optind + 1], open_flags, COPY_MODE);
     if (output_fd == -1) {
         if (verbose) {
             if (errno == EEXIST) {
@@ -56,8 +58,10 @@ int main(int argc, char *argv[]) {
                 printf("general failure\n");
             }
         }
+        else {
+            printf("%d\n", 1);
+        }
         close(input_fd);
-        perror("Error opening destination file");
         exit(EXIT_FAILURE);
     }
 
@@ -67,7 +71,9 @@ int main(int argc, char *argv[]) {
             if (verbose) {
                 printf("general failure\n");
             }
-            perror("Error writing to destination file");
+            else {
+                printf("%d\n", 1);
+            }
             close(input_fd);
             close(output_fd);
             exit(EXIT_FAILURE);
@@ -79,6 +85,8 @@ int main(int argc, char *argv[]) {
 
     if (verbose) {
         printf("success\n");
+    }else {
+        printf("%d\n", 0);
     }
 
     return 0;

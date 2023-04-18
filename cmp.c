@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
     FILE *file1, *file2;
     bool verbose = false, ignore_case = false;
     int opt;
+    
 
     while ((opt = getopt(argc, argv, "vi")) != -1) {
         switch (opt) {
@@ -40,7 +41,7 @@ int main(int argc, char *argv[]) {
     int result = 0;
     int ch1, ch2;
 
-    do {
+    while (ch1 != EOF && ch2 != EOF) {
         ch1 = fgetc(file1);
         ch2 = fgetc(file2);
 
@@ -53,7 +54,7 @@ int main(int argc, char *argv[]) {
             result = 1;
             break;
         }
-    } while (ch1 != EOF && ch2 != EOF);
+    } 
 
     fclose(file1);
     fclose(file2);
