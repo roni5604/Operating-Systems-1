@@ -1,10 +1,18 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic
+CFLAGS = -Wall -Wextra -std=c11 -fPIC -D_GNU_SOURCE
+LDFLAGS = -shared
 
-all: stdshell
+all: encode_decode libcodecA.so libcodecB.so
 
-stdshell: stdshell.c
-	$(CC) $(CFLAGS) -o stshell stshell.c
+encode_decode: encode_decode.c
+# produces the encode_decode executable with the correct runtime library search path.
+	$(CC) $(CFLAGS) -o encode_decode encode_decode.c -ldl -Wl,-rpath,'$$ORIGIN'
+
+libcodecA.so: codecA.c
+	$(CC) $(CFLAGS) $(LDFLAGS) -o libcodecA.so codecA.c
+
+libcodecB.so: codecB.c
+	$(CC) $(CFLAGS) $(LDFLAGS) -o libcodecB.so codecB.c
 
 clean:
-	rm -f stshell
+	rm -f encode_decode libcodecA.so libcodecB.so
