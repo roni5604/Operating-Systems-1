@@ -1,0 +1,17 @@
+total 376
+-rw-r--r--@ 1 michaeli  staff    528 Apr 19 15:07 Makefile
+-rw-r--r--@ 1 michaeli  staff    780 Apr 15 08:26 basic_shell.c
+-rwxr-xr-x@ 1 michaeli  staff  33856 Apr 18 17:57 cmp
+-rw-r--r--@ 1 michaeli  staff   1488 Apr 18 17:57 cmp.c
+-rw-r--r--@ 1 michaeli  staff    329 Apr 15 08:46 codecA.c
+-rw-r--r--@ 1 michaeli  staff    199 Apr 15 08:46 codecB.c
+-rwxr-xr-x@ 1 michaeli  staff  34065 Apr 15 08:42 copy
+-rw-r--r--@ 1 michaeli  staff   2291 Apr 18 18:24 copy.c
+-rw-r--r--@ 1 michaeli  staff   1009 Apr 18 18:37 encode_decode.c
+-rw-r--r--@ 1 michaeli  staff     11 Apr 15 09:23 file1.txt
+-rw-r--r--@ 1 michaeli  staff     11 Apr 15 09:03 file2.txt
+-rw-r--r--@ 1 michaeli  staff      0 Apr 19 17:11 ls_output.txt
+-rwxr-xr-x@ 1 michaeli  staff  34452 Apr 19 17:10 stshell
+-rw-r--r--@ 1 michaeli  staff   7076 Apr 19 16:46 stshell.c
+-rw-r--r--@ 1 michaeli  staff  32301 Apr 15 08:22 task2_v1.1.pdf
+-rw-r--r--@ 1 michaeli  staff     11 Apr 15 09:28 test_file1.txt
